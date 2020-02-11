@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title> </title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jO6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	
+	<script>
+	function addCard()
+	{
+		//alert("hi");
+		var no=1;
+		var cardAmount=document.getElementById('amount').value;
+		var cardPaise=document.getElementById('paise').value;
+		var recpFirstName=document.getElementById('firstname').value;
+		var recpLastName=document.getElementById('lastname').value;
+		var cardStreet=document.getElementById('street').value;
+		var cardCity=document.getElementById('city').value;
+		var cardState=document.getElementById('state').value;
+		var cardCountry=document.getElementById('country').value;
+		var cardPincode=document.getElementById('pincode').value;
+		var cardBfname=document.getElementById('bfname').value;
+		var cardBlname=document.getElementById('blname').value;
+		var cardPhone=document.getElementById('phone').value;
+		alert(cardPhone);
+		var cardEmail=document.getElementById('email').value;
+		//alert("hello");
+		
+		var addCard=null;
+		
+		if(sessionStorage.getItem('addCard'))
+		{
+			//alert("if:"+addCard);
+			addCard=JSON.parse(sessionStorage.getItem('addCard'));
+			var size=addCard.length;
+			addCard[size]={
+				addAmount:cardAmount,
+				addPaise:cardPaise,
+				addFirstname:recpFirstName,
+				addLastname:recpLastName,
+				addStreet:cardStreet,
+				addCity:cardCity,
+				addState:cardState,
+				addCountry:cardCountry,
+				addPincode:cardPincode,
+				addBfname:cardBfname,
+				addBlname:cardBlname,
+				addPhone:cardPhone,
+				addEmail:cardEmail
+				};
+		}
+		else
+		{
+		//alert("else:"+addCard);
+			addCard=[{
+				addAmount:cardAmount,
+				addPaise:cardPaise,
+				addFirstname:recpFirstName,
+				addLastname:recpLastName,
+				addStreet:cardStreet,
+				addCity:cardCity,
+				addState:cardState,
+				addCountry:cardCountry,
+				addPincode:cardPincode,
+				addBfname:cardBfname,
+				addBlname:cardBlname,
+				addPhone:cardPhone,
+				addEmail:cardEmail
+					}];
+		}
+		
+		sessionStorage.setItem('addCard',JSON.stringify(addCard));
+		addCard=JSON.parse(sessionStorage.getItem('addCard'));
+		
+		alert('length' +addCard.length);
+		//alert('get' +JSON.stringify(addCard));
+		
+		return true;
+	}
+		
+		
+	</script>
+	<style>
+
+.sidebar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position:absolute;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+.sidebar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar a {float: left;}
+  div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 300px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+}
+
+   
+.jumbotron {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+footer {
+  
+   position: relative;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: lightgray;
+   color: white;
+   text-align: center;
+}
+</style>
+ </head>
+ 	
+		
+		
+
+<body>
+<nav class="navbar navbar-expand-md bg-lighter navbar-dark">
+   <a class="navbar-brand" href="#">
+    <img class="rounded-circle" alt="100x100" src="https://image.shutterstock.com/image-vector/colorful-gift-logo-design-template-260nw-1029675823.jpg" style="width:20%">`
+  </a>
+  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    
+</nav>
+<nav class="navbar navbar-expand-md bg-info navbar-dark">
+   <a class="navbar-brand" href="#">
+  </a>
+  <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="placeorder.html">Place Order</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="vieworder.html">View Order</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="contact.html">Contact Us</a>
+      </li>    
+    </ul>
+  </div>  
+</nav>
+<div class="sidebar">
+               <a href="index.html">Home</a>
+               <a href="placeorder.html">Place Order</a>
+               <a href="vieworder.html">View Orders</a>
+				<a href="contact.html">Contact Us</a>
+ </div>
+
+
+<div class="container">
+    <div class="row ">
+	<div class="col-2"></div>
+        <div class="col-8">
+           <div class="card shadow-lg">
+                <div class="card-body-lg bg-light">
+					<form class="col"  onsubmit="return addCard()">
+						<div class="input-group">
+                               <h3 style="font-weight: bold">Place GIft Order</h3>
+                        </div>
+						<div class="row">
+							<div class="col">
+								<div class="col">		
+									<label >Gift Card Amount </label>
+									<input type="number" name="amount" id="amount">
+									<label >INR</label>
+
+									<input type="number" name="paise" id="paise">
+									<label >Paise</label>
+								</div>
+							</div>
+						</div>
+						<div class="input-group mt-3 mb-3">
+                           <div class="input-group-prepend ">
+                                      <div class="input-group-text">Recipient Name </div>
+                           </div>
+                            <input type="text"  autofocus="firstname" name="firstname"   pattern='[A-Za-z\\s]*' id="firstname"   placeholder="Firstname" /> &nbsp;&nbsp;
+                            <input type="text" name="lastname"  pattern='[A-Za-z\\s]*' id="lastname" placeholder="LastName" /> 
+                        </div>
+						<div class="container mx-4">
+						<div class="row">
+						
+								<fieldset class="border border-dark p-2">
+								<legend  class=" w-auto"style="font-weight: bold ">Shipping Address</legend>	
+										<div class="col">
+											<input type="text" placeholder="Address" class="form-control" name="street"  id="street"/>
+											<label class="m-auto">Street address</label>
+										</div>
+										<div class="row m-auto">
+												<div class="col-6">
+														<input type="text" placeholder="city"  class="form-control" name="city" id="city" />&nbsp;
+														<label  class="m-auto">City</label>
+												</div>
+												<div  class="col-6">
+														<input type="text" placeholder="State" class="form-control" name="state" id="state" />
+														<label class="m-auto">State</label>
+												</div>
+										</div>								
+										<div class="row m-auto">	
+										<div  class="col-6">		
+													<input type="text" placeholder="Country" class="form-control" name="country" id="country" />
+														<label class="m-auto">Country</label>
+										</div>					    						    
+												
+											<div class="col-6">			
+												<input  type=" text" class="form-control" placeholder="Pincode" name="pincode" id="pincode" pattern="[0-9]{6}" maxlength="6">					     			
+												<label class="m-auto" > Pincode</label>
+											</div>
+										</div>
+										</div>
+								</fieldset>
+						</div>	
+					    </div>						
+						<div class="input-group mt-3 mb-3">
+                                <div class="input-group-prepend ">
+                                     <span class="input-group-text">Buyer's Name</span>
+                                </div>
+                                    <input type="text"  autofocus="bfname" name="firstname"   pattern='[A-Za-z\\s]*' id="bfname" name="bfname"  placeholder="Firstname" /> &nbsp;&nbsp;
+                                    <input type="text" name="blname"  pattern='[A-Za-z\\s]*' id="blname" placeholder="LastName" name="blname"/> 
+                        </div>                      
+						<div class="input-group-prepend"  >
+						<label>Mobile no:</label>
+                               <span class="input-group-text">+91</span>
+                                <input  type="text" id="phone" pattern="[0-9]{10}" maxlength="10" name="phone"/>   	
+						</div>                    
+						<div class="row">
+								<!-- <form action="/action_page.php"> -->
+								<div class="col-6">
+								<div class="form-group">
+										<label for="email">Email:</label>
+										<input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+								</div>
+								</div>
+								<!-- </form> -->
+                        </div>
+						<div class="row ">
+								<div class="col mt-2 ml-auto">
+										<input class="form-control" type="submit" value="PlaceOrder" >
+								</div>
+								
+						</div>
+					</form> 
+				</div>
+			</div>
+		</div>
+		<div class="col-2"></div>
+	</div>
+</div>
+<footer class="page-footer fixed-bottom">
+ 2020 @Copyright
+</footer>
+
+</body>
+</html>
